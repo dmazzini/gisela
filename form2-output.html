@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data de Formulario</title>
+    
+</head>
+
+<body>
+    <script>
+        // Make the list
+        var listElement = document.createElement('dl');
+        // Add it to the HTML
+        document.getElementsByTagName('body')[0].appendChild(listElement);
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameter = sURLVariables[i].split('=');
+            var sParameterName = sParameter[0];
+            var sParameterValue = sParameter[1];
+            // create a term item for each one
+            var listTerm = document.createElement('dt');
+            // Add the item text
+            listTerm.innerHTML = sParameterName;
+            // Add listTerm to the listElement
+            listElement.appendChild(listTerm);
+            // create a definition item for each one
+            var listDefinition = document.createElement('dd');
+            // Add the item text
+            listDefinition.innerHTML = sParameterValue;
+            // Add listTerm to the listElement
+            listElement.appendChild(listDefinition);
+        }
+    </script>
+</body>
+
+</html>
